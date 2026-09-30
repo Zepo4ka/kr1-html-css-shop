@@ -11,42 +11,21 @@
   <header>
     <div class="site-header">
       <a class="site-logo" href="index.html">ShopProject</a>
-
-      <nav class="site-nav" aria-label="Основная навигация">
+      <nav aria-label="Основная навигация">
         <ul class="site-nav__list">
-          <li><a href="index.html">Главная</a></li>
           <li><a href="#popular">Товары</a></li>
           <li><a href="#comparison">Сравнение</a></li>
           <li><a href="#request">Заявка</a></li>
-          <li><a href="#about">О проекте</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <h1>Выберите товар для повседневной жизни</h1>
-      <p>
-        Посмотрите карточки, сравните характеристики и оставьте заявку.
-        Это учебный каталог: оформление показано в демонстрационном режиме.
-      </p>
-      <a class="button" href="#popular">Перейти к товарам</a>
-    </section>
-
-    <section class="section" id="advantages">
-      <h2>Как пользоваться каталогом</h2>
-      <ul class="advantages-list">
-        <li>Изучите описание и цену каждого товара.</li>
-        <li>Сопоставьте модели в таблице характеристик.</li>
-        <li>Откройте форму из карточки товара или раздела заявки.</li>
-      </ul>
-    </section>
+    <h1>Каталог товаров</h1>
 
     <section class="section" id="popular">
       <h2>Товары</h2>
-      <p class="section__lead">Три примера товаров для учебного каталога.</p>
-
       <div class="products-grid">
         <article class="product-card">
           <div class="product-card__media">
@@ -56,9 +35,7 @@
           <p class="product-card__description">Лёгкая повседневная обувь для прогулок по городу.</p>
           <p class="product-card__details">Синий цвет · текстиль и резина</p>
           <p class="product-card__price">4 990 ₽</p>
-          <button class="button product-card__button" type="button" data-product="Кроссовки Urban">
-            Оставить заявку
-          </button>
+          <a class="button product-card__button" href="#request">Оставить заявку</a>
         </article>
 
         <article class="product-card">
@@ -69,9 +46,7 @@
           <p class="product-card__description">Компактный рюкзак для повседневных поездок.</p>
           <p class="product-card__details">Жёлтый цвет · полиэстер</p>
           <p class="product-card__price">3 490 ₽</p>
-          <button class="button product-card__button" type="button" data-product="Рюкзак City">
-            Оставить заявку
-          </button>
+          <a class="button product-card__button" href="#request">Оставить заявку</a>
         </article>
 
         <article class="product-card">
@@ -82,19 +57,15 @@
           <p class="product-card__description">Накладные наушники для музыки дома и в дороге.</p>
           <p class="product-card__details">Зелёный цвет · пластик и ткань</p>
           <p class="product-card__price">5 990 ₽</p>
-          <button class="button product-card__button" type="button" data-product="Наушники Wave">
-            Оставить заявку
-          </button>
+          <a class="button product-card__button" href="#request">Оставить заявку</a>
         </article>
       </div>
     </section>
 
     <section class="section" id="comparison">
       <h2>Сравнение характеристик</h2>
-      <p class="section__lead">Основные параметры всех трёх товаров в одной таблице. На узком экране прокрутите её вправо.</p>
       <div class="comparison-scroll" role="region" aria-label="Таблица сравнения товаров" tabindex="0">
         <table class="comparison-table">
-          <caption>Характеристики товаров</caption>
           <thead>
             <tr>
               <th scope="col">Характеристика</th>
@@ -139,114 +110,29 @@
       </div>
     </section>
 
-    <section class="section request-panel" id="request">
-      <h2>Оставить заявку</h2>
-      <p>Выберите товар в карточке выше или откройте общую форму для вопроса.</p>
-      <button class="button" id="request-button" type="button">Открыть форму заявки</button>
-      <p class="request-panel__note">Демонстрационный режим: заявка не отправляется и не сохраняется.</p>
+    <section class="section" id="request">
+      <h2>Форма заявки</h2>
+      <form class="request-form" id="request-form">
+        <div class="form-field">
+          <label for="request-name">Имя</label>
+          <input id="request-name" type="text" autocomplete="name" required>
+        </div>
+        <div class="form-field">
+          <label for="request-email">Email</label>
+          <input id="request-email" type="email" autocomplete="email" required>
+        </div>
+        <div class="form-field">
+          <label for="request-message">Сообщение</label>
+          <textarea id="request-message" rows="4" required></textarea>
+        </div>
+        <button class="button" type="submit">Отправить</button>
+        <p class="form-result" id="form-result" role="status" hidden>Форма заполнена.</p>
+      </form>
     </section>
-
-    <aside class="aside-info" id="about">
-      <h2>О проекте</h2>
-      <p>
-        Страница разработана для контрольной работы по дисциплине
-        «Фронтенд и бэкенд разработка». Товары и цены приведены в качестве примера.
-      </p>
-    </aside>
   </main>
 
   <footer>
-    <p>&copy; 2026 ShopProject — учебный проект.</p>
-    <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+    <p>&copy; 2026 ShopProject</p>
   </footer>
-
-  <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title" aria-describedby="order-product-summary order-dialog-note">
-    <h2 id="order-dialog-title">Оформление заявки</h2>
-    <p id="order-product-summary" aria-live="polite"></p>
-    <p class="order-dialog__note" id="order-dialog-note">Демо: данные проверяются в браузере, но не отправляются на сервер.</p>
-
-    <form class="order-form" id="order-form" novalidate>
-      <input id="selected-product" name="selected-product" type="hidden">
-
-      <div class="form-field">
-        <label for="order-name">Имя</label>
-        <input
-          id="order-name"
-          name="name"
-          type="text"
-          placeholder="Введите ваше имя"
-          minlength="2"
-          autocomplete="given-name"
-          required
-        >
-      </div>
-
-      <div class="form-field">
-        <label for="order-email">E-mail</label>
-        <input
-          id="order-email"
-          name="email"
-          type="email"
-          placeholder="example@mail.ru"
-          autocomplete="email"
-          required
-        >
-      </div>
-
-      <div class="form-field">
-        <label for="order-phone">Телефон</label>
-        <input
-          id="order-phone"
-          name="phone"
-          type="tel"
-          inputmode="tel"
-          placeholder="+7 (900) 000-00-00"
-          pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
-          aria-describedby="order-phone-hint"
-          required
-        >
-        <small id="order-phone-hint">Формат: +7 (900) 000-00-00</small>
-      </div>
-
-      <div class="form-field">
-        <label for="order-date">Дата связи</label>
-        <input id="order-date" name="date" type="date">
-      </div>
-
-      <div class="form-field">
-        <label for="order-topic">Тема заявки</label>
-        <select id="order-topic" name="topic" required>
-          <option value="">Выберите тему</option>
-          <option value="product">Заказ товара</option>
-          <option value="consultation">Консультация</option>
-          <option value="delivery">Доставка</option>
-        </select>
-      </div>
-
-      <div class="form-field">
-        <label for="order-comment">Комментарий</label>
-        <textarea
-          id="order-comment"
-          name="comment"
-          rows="4"
-          placeholder="Укажите дополнительную информацию"
-        ></textarea>
-      </div>
-
-      <div class="form-field form-field--checkbox">
-        <input id="order-agreement" name="agreement" type="checkbox" required>
-        <label for="order-agreement">Я согласен на обработку данных</label>
-      </div>
-
-      <div class="form-actions">
-        <button type="button" id="close-order-dialog">Закрыть</button>
-        <button type="submit">Проверить заявку</button>
-      </div>
-    </form>
-  </dialog>
-
-  <p class="success-message" id="success-message" role="status" tabindex="-1" hidden>
-    Форма заполнена верно. Это демоверсия: данные не отправлены.
-  </p>
 </body>
 </html>
