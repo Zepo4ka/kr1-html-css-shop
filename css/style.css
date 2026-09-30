@@ -90,14 +90,22 @@ footer {
 .button {
   display: inline-block;
   padding: 10px 16px;
+  border: 0;
   color: #ffffff;
   background-color: #0057b8;
   text-decoration: none;
   border-radius: 6px;
+  font: inherit;
+  cursor: pointer;
 }
 
 .button:hover {
   background-color: #003f86;
+}
+
+.button:focus-visible {
+  outline: 2px solid #003f86;
+  outline-offset: 2px;
 }
 
 /* Вспомогательный блок отделён цветной линией. */
@@ -107,4 +115,113 @@ footer {
   padding: 16px;
   border-left: 4px solid #0057b8;
   background-color: #f7f7f7;
+}
+
+/* Диалог остаётся доступным на небольших экранах и прокручивается при необходимости. */
+.order-dialog {
+  width: min(calc(100% - 32px), 560px);
+  max-height: calc(100vh - 32px);
+  padding: 24px;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+.order-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.order-dialog h2 {
+  margin-top: 0;
+}
+
+.form-field {
+  margin-bottom: 16px;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font: inherit;
+}
+
+.form-field small {
+  display: block;
+  margin-top: 4px;
+  color: #666666;
+}
+
+.form-field--checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.form-field--checkbox input[type="checkbox"] {
+  width: auto;
+  margin-top: 5px;
+}
+
+.form-field--checkbox label {
+  margin-bottom: 0;
+}
+
+.form-field input:focus-visible,
+.form-field select:focus-visible,
+.form-field textarea:focus-visible,
+.form-actions button:focus-visible {
+  outline: 2px solid #0057b8;
+  outline-offset: 2px;
+}
+
+[aria-invalid="true"] {
+  border-color: #b00020;
+}
+
+.form-field--checkbox [aria-invalid="true"] {
+  outline: 2px solid #b00020;
+  outline-offset: 2px;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.form-actions button {
+  padding: 10px 16px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  background-color: #f2f2f2;
+  font: inherit;
+  cursor: pointer;
+}
+
+.form-actions button[type="submit"] {
+  border-color: #0057b8;
+  color: #ffffff;
+  background-color: #0057b8;
+}
+
+.form-actions button[type="submit"]:hover {
+  background-color: #003f86;
+}
+
+.success-message {
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 16px;
+  border-left: 4px solid #168a2f;
+  background-color: #eefaf0;
 }
