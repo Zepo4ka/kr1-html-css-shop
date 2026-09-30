@@ -117,16 +117,22 @@ a:focus-visible {
 }
 
 .site-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-xs) var(--space-lg);
   margin: var(--space-md) 0 0;
   padding: 0;
   list-style: none;
 }
 
 .site-nav__list li {
-  margin-bottom: var(--space-sm);
+  margin: 0;
 }
 
 .site-nav__list a {
+  display: inline-block;
+  padding: var(--space-xs) 0;
   color: var(--color-primary);
   text-decoration: none;
 }
@@ -153,20 +159,155 @@ a:focus-visible {
   margin-top: 0;
 }
 
+.section__lead {
+  max-width: 70ch;
+  margin-top: 0;
+  color: var(--color-muted);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-lg);
+  align-items: stretch;
+}
+
 .product-card {
-  margin-bottom: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  min-width: 0;
+  margin: 0;
   padding: var(--space-md);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background-color: var(--color-bg);
 }
 
-.product-card:hover {
+.product-card:hover,
+.product-card:focus-within {
   border-color: var(--color-primary);
 }
 
-.product-card h3 {
-  margin-top: 0;
+.product-card__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 180px;
+  padding: var(--space-md);
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface-accent);
+}
+
+.product-card__media > img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.product-card__title {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.product-card__description,
+.product-card__details {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.product-card__price {
+  margin: auto 0 0;
+  padding-top: var(--space-sm);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.product-card__button {
+  width: 100%;
+  min-height: 44px;
+  margin-top: var(--space-sm);
+}
+
+.comparison-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  -webkit-overflow-scrolling: touch;
+}
+
+.comparison-scroll:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.comparison-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  background-color: var(--color-bg);
+}
+
+.comparison-table caption {
+  padding: var(--space-md);
+  font-weight: 700;
+  text-align: left;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.comparison-table thead {
+  background-color: var(--color-surface-accent);
+}
+
+.comparison-table tbody th {
+  font-weight: 600;
+}
+
+.comparison-table tbody tr:nth-child(even) {
+  background-color: var(--color-surface);
+}
+
+.comparison-table tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.request-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-md);
+  max-width: var(--container-width);
+  margin: 0 auto var(--space-xl);
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface-accent);
+}
+
+.request-panel h2,
+.request-panel > p,
+.request-panel__note {
+  margin: 0;
+}
+
+.request-panel__note {
+  max-width: 70ch;
+  color: var(--color-muted);
+}
+
+.request-panel .button {
+  min-height: 44px;
 }
 
 .aside-info {
@@ -196,6 +337,10 @@ a:focus-visible {
 
 .order-dialog h2 {
   margin-top: 0;
+}
+
+.order-dialog__note {
+  color: var(--color-muted);
 }
 
 .form-field {
@@ -308,4 +453,30 @@ button:disabled {
   padding: var(--space-md);
   border-left: 4px solid var(--color-success);
   background-color: var(--color-success-bg);
+}
+
+@media (max-width: 600px) {
+  header,
+  main,
+  footer {
+    padding: var(--space-md);
+  }
+
+  .hero {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .site-nav__list {
+    gap: var(--space-xs) var(--space-md);
+  }
+
+  .order-dialog {
+    padding: var(--space-md);
+  }
+}
+
+@media (max-width: 360px) {
+  .products-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }

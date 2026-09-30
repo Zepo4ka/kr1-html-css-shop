@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Учебный интернет-магазин</title>
+  <title>Каталог товаров — ShopProject</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
 </head>
@@ -15,9 +15,10 @@
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li><a href="index.html">Главная</a></li>
-          <li><a href="#popular">Популярные товары</a></li>
-          <li><a href="#advantages">Преимущества</a></li>
-          <li><a href="#contacts">Контакты</a></li>
+          <li><a href="#popular">Товары</a></li>
+          <li><a href="#comparison">Сравнение</a></li>
+          <li><a href="#request">Заявка</a></li>
+          <li><a href="#about">О проекте</a></li>
         </ul>
       </nav>
     </div>
@@ -25,75 +26,146 @@
 
   <main>
     <section class="hero">
-      <h1>Учебный интернет-магазин</h1>
+      <h1>Выберите товар для повседневной жизни</h1>
       <p>
-        Это стартовая страница учебного frontend-проекта.
-        В дальнейшем на её основе будет разработан многостраничный сайт
-        интернет-магазина или каталога услуг.
+        Посмотрите карточки, сравните характеристики и оставьте заявку.
+        Это учебный каталог: оформление показано в демонстрационном режиме.
       </p>
       <a class="button" href="#popular">Перейти к товарам</a>
     </section>
 
     <section class="section" id="advantages">
-      <h2>Преимущества проекта</h2>
+      <h2>Как пользоваться каталогом</h2>
       <ul class="advantages-list">
-        <li>понятная HTML-структура;</li>
-        <li>семантические блоки страницы;</li>
-        <li>подключение внешнего CSS-файла;</li>
-        <li>подготовка к разработке многостраничного сайта.</li>
+        <li>Изучите описание и цену каждого товара.</li>
+        <li>Сопоставьте модели в таблице характеристик.</li>
+        <li>Откройте форму из карточки товара или раздела заявки.</li>
       </ul>
     </section>
 
     <section class="section" id="popular">
-      <h2>Популярные товары</h2>
+      <h2>Товары</h2>
+      <p class="section__lead">Три примера товаров для учебного каталога.</p>
 
-      <article class="product-card">
-        <h3>Товар 1</h3>
-        <p>Краткое описание учебного товара.</p>
-        <p>Цена: 1000 руб.</p>
-        <button class="button product-card__button" type="button" data-product="Товар 1">
-          Заказать
-        </button>
-      </article>
+      <div class="products-grid">
+        <article class="product-card">
+          <div class="product-card__media">
+            <img src="images/sneaker.svg" alt="Синие кроссовки Urban" width="320" height="220">
+          </div>
+          <h3 class="product-card__title">Кроссовки Urban</h3>
+          <p class="product-card__description">Лёгкая повседневная обувь для прогулок по городу.</p>
+          <p class="product-card__details">Синий цвет · текстиль и резина</p>
+          <p class="product-card__price">4 990 ₽</p>
+          <button class="button product-card__button" type="button" data-product="Кроссовки Urban">
+            Оставить заявку
+          </button>
+        </article>
 
-      <article class="product-card">
-        <h3>Товар 2</h3>
-        <p>Краткое описание учебного товара.</p>
-        <p>Цена: 1500 руб.</p>
-        <button class="button product-card__button" type="button" data-product="Товар 2">
-          Заказать
-        </button>
-      </article>
+        <article class="product-card">
+          <div class="product-card__media">
+            <img src="images/backpack.svg" alt="Жёлтый рюкзак City" width="320" height="220">
+          </div>
+          <h3 class="product-card__title">Рюкзак City</h3>
+          <p class="product-card__description">Компактный рюкзак для повседневных поездок.</p>
+          <p class="product-card__details">Жёлтый цвет · полиэстер</p>
+          <p class="product-card__price">3 490 ₽</p>
+          <button class="button product-card__button" type="button" data-product="Рюкзак City">
+            Оставить заявку
+          </button>
+        </article>
 
-      <article class="product-card">
-        <h3>Товар 3</h3>
-        <p>Краткое описание учебного товара.</p>
-        <p>Цена: 2000 руб.</p>
-        <button class="button product-card__button" type="button" data-product="Товар 3">
-          Заказать
-        </button>
-      </article>
+        <article class="product-card">
+          <div class="product-card__media">
+            <img src="images/headphones.svg" alt="Зелёные наушники Wave" width="320" height="220">
+          </div>
+          <h3 class="product-card__title">Наушники Wave</h3>
+          <p class="product-card__description">Накладные наушники для музыки дома и в дороге.</p>
+          <p class="product-card__details">Зелёный цвет · пластик и ткань</p>
+          <p class="product-card__price">5 990 ₽</p>
+          <button class="button product-card__button" type="button" data-product="Наушники Wave">
+            Оставить заявку
+          </button>
+        </article>
+      </div>
     </section>
 
-    <aside class="aside-info">
-      <h2>Информация для студентов</h2>
+    <section class="section" id="comparison">
+      <h2>Сравнение характеристик</h2>
+      <p class="section__lead">Основные параметры всех трёх товаров в одной таблице. На узком экране прокрутите её вправо.</p>
+      <div class="comparison-scroll" role="region" aria-label="Таблица сравнения товаров" tabindex="0">
+        <table class="comparison-table">
+          <caption>Характеристики товаров</caption>
+          <thead>
+            <tr>
+              <th scope="col">Характеристика</th>
+              <th scope="col">Кроссовки Urban</th>
+              <th scope="col">Рюкзак City</th>
+              <th scope="col">Наушники Wave</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Категория</th>
+              <td>Обувь</td>
+              <td>Аксессуары</td>
+              <td>Электроника</td>
+            </tr>
+            <tr>
+              <th scope="row">Цена</th>
+              <td>4 990 ₽</td>
+              <td>3 490 ₽</td>
+              <td>5 990 ₽</td>
+            </tr>
+            <tr>
+              <th scope="row">Цвет</th>
+              <td>Синий</td>
+              <td>Жёлтый</td>
+              <td>Зелёный</td>
+            </tr>
+            <tr>
+              <th scope="row">Материал</th>
+              <td>Текстиль и резина</td>
+              <td>Полиэстер</td>
+              <td>Пластик и ткань</td>
+            </tr>
+            <tr>
+              <th scope="row">Назначение</th>
+              <td>Прогулки</td>
+              <td>Повседневные поездки</td>
+              <td>Прослушивание музыки</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section request-panel" id="request">
+      <h2>Оставить заявку</h2>
+      <p>Выберите товар в карточке выше или откройте общую форму для вопроса.</p>
+      <button class="button" id="request-button" type="button">Открыть форму заявки</button>
+      <p class="request-panel__note">Демонстрационный режим: заявка не отправляется и не сохраняется.</p>
+    </section>
+
+    <aside class="aside-info" id="about">
+      <h2>О проекте</h2>
       <p>
-        На следующих практических занятиях этот проект будет расширяться:
-        появятся дополнительные страницы, Flex/Grid, БЭМ-структура
-        и адаптивная версия сайта.
+        Страница разработана для контрольной работы по дисциплине
+        «Фронтенд и бэкенд разработка». Товары и цены приведены в качестве примера.
       </p>
     </aside>
   </main>
 
-  <footer id="contacts">
-    <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+  <footer>
+    <p>&copy; 2026 ShopProject — учебный проект.</p>
     <p>Дисциплина: Фронтенд и бэкенд разработка</p>
   </footer>
 
-  <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+  <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title" aria-describedby="order-product-summary order-dialog-note">
     <h2 id="order-dialog-title">Оформление заявки</h2>
+    <p id="order-product-summary" aria-live="polite"></p>
+    <p class="order-dialog__note" id="order-dialog-note">Демо: данные проверяются в браузере, но не отправляются на сервер.</p>
 
-    <form class="order-form" id="order-form" action="#" method="post" novalidate>
+    <form class="order-form" id="order-form" novalidate>
       <input id="selected-product" name="selected-product" type="hidden">
 
       <div class="form-field">
@@ -130,9 +202,10 @@
           inputmode="tel"
           placeholder="+7 (900) 000-00-00"
           pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+          aria-describedby="order-phone-hint"
           required
         >
-        <small>Формат: +7 (900) 000-00-00</small>
+        <small id="order-phone-hint">Формат: +7 (900) 000-00-00</small>
       </div>
 
       <div class="form-field">
@@ -167,13 +240,13 @@
 
       <div class="form-actions">
         <button type="button" id="close-order-dialog">Закрыть</button>
-        <button type="submit">Отправить заявку</button>
+        <button type="submit">Проверить заявку</button>
       </div>
     </form>
   </dialog>
 
-  <p class="success-message" id="success-message" role="status" hidden>
-    Форма успешно отправлена!
+  <p class="success-message" id="success-message" role="status" tabindex="-1" hidden>
+    Форма заполнена верно. Это демоверсия: данные не отправлены.
   </p>
 </body>
 </html>
