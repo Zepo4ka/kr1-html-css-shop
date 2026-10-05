@@ -4,16 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Каталог товаров — ShopProject</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/main.js" defer></script>
+  <link rel="stylesheet" href="css/style.css?v=20261005">
+  <script src="js/main.js?v=20261005" defer></script>
 </head>
 <body>
   <header>
     <div class="site-header">
       <a class="site-logo" href="index.html">ShopProject</a>
-      <nav aria-label="Основная навигация">
+      <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li><a href="#popular">Товары</a></li>
+          <li><a href="#advantages">Преимущества</a></li>
           <li><a href="#comparison">Сравнение</a></li>
           <li><a href="#request">Заявка</a></li>
         </ul>
@@ -22,7 +23,20 @@
   </header>
 
   <main>
-    <h1>Каталог товаров</h1>
+    <section class="hero">
+      <h1>Товары на каждый день</h1>
+      <p>Выберите товар, сравните характеристики и оставьте заявку.</p>
+      <a class="button" href="#popular">Перейти к товарам</a>
+    </section>
+
+    <section class="section" id="advantages">
+      <h2>Преимущества</h2>
+      <ul class="advantages-list">
+        <li>Описание и цена каждого товара в каталоге.</li>
+        <li>Сравнение характеристик в одной таблице.</li>
+        <li>Заявка на заказ или консультацию.</li>
+      </ul>
+    </section>
 
     <section class="section" id="popular">
       <h2>Товары</h2>
@@ -35,7 +49,7 @@
           <p class="product-card__description">Лёгкая повседневная обувь для прогулок по городу.</p>
           <p class="product-card__details">Синий цвет · текстиль и резина</p>
           <p class="product-card__price">4 990 ₽</p>
-          <a class="button product-card__button" href="#request">Оставить заявку</a>
+          <button class="button product-card__button" type="button" data-product="Кроссовки Urban">Заказать</button>
         </article>
 
         <article class="product-card">
@@ -46,7 +60,7 @@
           <p class="product-card__description">Компактный рюкзак для повседневных поездок.</p>
           <p class="product-card__details">Жёлтый цвет · полиэстер</p>
           <p class="product-card__price">3 490 ₽</p>
-          <a class="button product-card__button" href="#request">Оставить заявку</a>
+          <button class="button product-card__button" type="button" data-product="Рюкзак City">Заказать</button>
         </article>
 
         <article class="product-card">
@@ -57,7 +71,7 @@
           <p class="product-card__description">Накладные наушники для музыки дома и в дороге.</p>
           <p class="product-card__details">Зелёный цвет · пластик и ткань</p>
           <p class="product-card__price">5 990 ₽</p>
-          <a class="button product-card__button" href="#request">Оставить заявку</a>
+          <button class="button product-card__button" type="button" data-product="Наушники Wave">Заказать</button>
         </article>
       </div>
     </section>
@@ -112,27 +126,65 @@
 
     <section class="section" id="request">
       <h2>Форма заявки</h2>
-      <form class="request-form" id="request-form">
-        <div class="form-field">
-          <label for="request-name">Имя</label>
-          <input id="request-name" type="text" autocomplete="name" required>
-        </div>
-        <div class="form-field">
-          <label for="request-email">Email</label>
-          <input id="request-email" type="email" autocomplete="email" required>
-        </div>
-        <div class="form-field">
-          <label for="request-message">Сообщение</label>
-          <textarea id="request-message" rows="4" required></textarea>
-        </div>
-        <button class="button" type="submit">Отправить</button>
-        <p class="form-result" id="form-result" role="status" hidden>Форма заполнена.</p>
-      </form>
+      <p>Оставьте контакты и выберите тему обращения.</p>
+      <button class="button" id="open-order-dialog" type="button">Оставить заявку</button>
+      <p class="success-message" id="success-message" role="status" hidden>Форма успешно отправлена!</p>
     </section>
+
+    <aside class="aside-info">
+      <h2>Нужна помощь с выбором?</h2>
+      <p>В форме заявки выберите тему «Консультация» и укажите свой вопрос.</p>
+    </aside>
   </main>
 
-  <footer>
+  <footer id="contacts">
     <p>&copy; 2026 ShopProject</p>
   </footer>
+
+  <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+    <h2 id="order-dialog-title">Оформление заявки</h2>
+    <p>Товар: <strong id="order-product-name">Не выбран</strong></p>
+    <form class="order-form" id="order-form" action="#" method="post" novalidate>
+      <input id="selected-product" name="selected-product" type="hidden">
+      <div class="form-field">
+        <label for="order-name">Имя</label>
+        <input id="order-name" name="name" type="text" placeholder="Введите ваше имя" minlength="2" autocomplete="given-name" required>
+      </div>
+      <div class="form-field">
+        <label for="order-email">E-mail</label>
+        <input id="order-email" name="email" type="email" placeholder="example@mail.ru" autocomplete="email" required>
+      </div>
+      <div class="form-field">
+        <label for="order-phone">Телефон</label>
+        <input id="order-phone" name="phone" type="tel" inputmode="tel" placeholder="+7 (900) 000-00-00" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" autocomplete="tel" aria-describedby="phone-hint" required>
+        <small id="phone-hint">Формат: +7 (900) 000-00-00</small>
+      </div>
+      <div class="form-field">
+        <label for="order-date">Дата связи</label>
+        <input id="order-date" name="date" type="date">
+      </div>
+      <div class="form-field">
+        <label for="order-topic">Тема заявки</label>
+        <select id="order-topic" name="topic" required>
+          <option value="">Выберите тему</option>
+          <option value="product">Заказ товара</option>
+          <option value="consultation">Консультация</option>
+          <option value="delivery">Доставка</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="order-comment">Комментарий</label>
+        <textarea id="order-comment" name="comment" rows="4" placeholder="Укажите дополнительную информацию"></textarea>
+      </div>
+      <div class="form-field form-field--checkbox">
+        <input id="order-agreement" name="agreement" type="checkbox" required>
+        <label for="order-agreement">Я согласен на обработку данных</label>
+      </div>
+      <div class="form-actions">
+        <button class="button button--secondary" id="close-order-dialog" type="button">Закрыть</button>
+        <button class="button" type="submit">Отправить заявку</button>
+      </div>
+    </form>
+  </dialog>
 </body>
 </html>
