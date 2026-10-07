@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Главная — ShopProject</title>
+  <meta name="description" content="Товары на каждый день: преимущества ShopProject, популярные товары и форма заявки.">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="site-header">
+      <a class="site-logo" href="index.html">ShopProject</a>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+          <li><a href="index.html#advantages">Преимущества</a></li>
+          <li><a href="index.html#popular">Популярные товары</a></li>
+          <li><a href="index.html#contacts">Обратная связь</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Товары на каждый день</h1>
+      <p>Выберите товар, сравните характеристики и оставьте заявку.</p>
+      <a class="button" href="catalog.html">Перейти в каталог</a>
+    </section>
+
+    <section class="section" id="advantages">
+      <h2>Преимущества</h2>
+      <ul class="advantages-list">
+        <li>Описание и цена каждого товара в каталоге.</li>
+        <li>Сравнение характеристик в одной таблице.</li>
+        <li>Заявка на заказ или консультацию.</li>
+      </ul>
+    </section>
+
+    <section class="section" id="popular">
+      <h2>Популярные товары</h2>
+      <div class="products-grid">
+        <article class="product-card">
+          <div class="product-card__media">
+            <img src="../images/sneaker.svg" alt="Синие кроссовки Urban" width="320" height="220">
+          </div>
+          <h3 class="product-card__title">Кроссовки Urban</h3>
+          <p class="product-card__description">Лёгкая повседневная обувь для прогулок по городу.</p>
+          <p class="product-card__details">Синий цвет · текстиль и резина</p>
+          <p class="product-card__price">4 990 ₽</p>
+          <button class="button product-card__button" type="button" data-product="Кроссовки Urban">Заказать</button>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__media">
+            <img src="../images/backpack.svg" alt="Жёлтый рюкзак City" width="320" height="220">
+          </div>
+          <h3 class="product-card__title">Рюкзак City</h3>
+          <p class="product-card__description">Компактный рюкзак для повседневных поездок.</p>
+          <p class="product-card__details">Жёлтый цвет · полиэстер</p>
+          <p class="product-card__price">3 490 ₽</p>
+          <button class="button product-card__button" type="button" data-product="Рюкзак City">Заказать</button>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__media">
+            <img src="../images/headphones.svg" alt="Зелёные наушники Wave" width="320" height="220">
+          </div>
+          <h3 class="product-card__title">Наушники Wave</h3>
+          <p class="product-card__description">Накладные наушники для музыки дома и в дороге.</p>
+          <p class="product-card__details">Зелёный цвет · пластик и ткань</p>
+          <p class="product-card__price">5 990 ₽</p>
+          <button class="button product-card__button" type="button" data-product="Наушники Wave">Заказать</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="comparison">
+      <h2>Сравнение характеристик</h2>
+      <div class="comparison-scroll" role="region" aria-label="Таблица сравнения товаров" tabindex="0">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th scope="col">Характеристика</th>
+              <th scope="col">Кроссовки Urban</th>
+              <th scope="col">Рюкзак City</th>
+              <th scope="col">Наушники Wave</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Категория</th>
+              <td>Обувь</td>
+              <td>Аксессуары</td>
+              <td>Электроника</td>
+            </tr>
+            <tr>
+              <th scope="row">Цена</th>
+              <td>4 990 ₽</td>
+              <td>3 490 ₽</td>
+              <td>5 990 ₽</td>
+            </tr>
+            <tr>
+              <th scope="row">Цвет</th>
+              <td>Синий</td>
+              <td>Жёлтый</td>
+              <td>Зелёный</td>
+            </tr>
+            <tr>
+              <th scope="row">Материал</th>
+              <td>Текстиль и резина</td>
+              <td>Полиэстер</td>
+              <td>Пластик и ткань</td>
+            </tr>
+            <tr>
+              <th scope="row">Назначение</th>
+              <td>Прогулки</td>
+              <td>Повседневные поездки</td>
+              <td>Прослушивание музыки</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="request">
+      <h2>Форма заявки</h2>
+      <p>Оставьте контакты и выберите тему обращения.</p>
+      <button class="button" id="open-order-dialog" type="button">Оставить заявку</button>
+      <p class="success-message" id="success-message" role="status" hidden>Форма успешно отправлена!</p>
+    </section>
+
+    <aside class="aside-info">
+      <h2>Нужна помощь с выбором?</h2>
+      <p>В форме заявки выберите тему «Консультация» и укажите свой вопрос.</p>
+    </aside>
+  </main>
+
+  <footer id="contacts">
+    <p>&copy; 2026 ShopProject</p>
+    <p><a href="index.html#request">Оставить заявку</a></p>
+  </footer>
+
+  <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+    <h2 id="order-dialog-title">Оформление заявки</h2>
+    <p>Товар: <strong id="order-product-name">Не выбран</strong></p>
+    <form class="order-form" id="order-form" action="#" method="post" novalidate>
+      <input id="selected-product" name="selected-product" type="hidden">
+      <div class="form-field">
+        <label for="order-name">Имя</label>
+        <input id="order-name" name="name" type="text" placeholder="Введите ваше имя" minlength="2" autocomplete="given-name" required>
+      </div>
+      <div class="form-field">
+        <label for="order-email">E-mail</label>
+        <input id="order-email" name="email" type="email" placeholder="example@mail.ru" autocomplete="email" required>
+      </div>
+      <div class="form-field">
+        <label for="order-phone">Телефон</label>
+        <input id="order-phone" name="phone" type="tel" inputmode="tel" placeholder="+7 (900) 000-00-00" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" autocomplete="tel" aria-describedby="phone-hint" required>
+        <small id="phone-hint">Формат: +7 (900) 000-00-00</small>
+      </div>
+      <div class="form-field">
+        <label for="order-date">Дата связи</label>
+        <input id="order-date" name="date" type="date">
+      </div>
+      <div class="form-field">
+        <label for="order-topic">Тема заявки</label>
+        <select id="order-topic" name="topic" required>
+          <option value="">Выберите тему</option>
+          <option value="product">Заказ товара</option>
+          <option value="consultation">Консультация</option>
+          <option value="delivery">Доставка</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="order-comment">Комментарий</label>
+        <textarea id="order-comment" name="comment" rows="4" placeholder="Укажите дополнительную информацию"></textarea>
+      </div>
+      <div class="form-field form-field--checkbox">
+        <input id="order-agreement" name="agreement" type="checkbox" required>
+        <label for="order-agreement">Я согласен на обработку данных</label>
+      </div>
+      <div class="form-actions">
+        <button class="button button--secondary" id="close-order-dialog" type="button">Закрыть</button>
+        <button class="button" type="submit">Отправить заявку</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>

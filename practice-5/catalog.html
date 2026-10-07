@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог товаров — ShopProject</title>
+  <meta name="description" content="Каталог товаров ShopProject: кроссовки Urban, рюкзак City и наушники Wave.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="site-header">
+      <a class="site-logo" href="index.html">ShopProject</a>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+          <li><a href="index.html#advantages">Преимущества</a></li>
+          <li><a href="index.html#popular">Популярные товары</a></li>
+          <li><a href="index.html#contacts">Обратная связь</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a href="index.html">Главная</a>
+      <span aria-current="page">Каталог</span>
+    </nav>
+    <h1>Каталог товаров</h1>
+
+    <section class="section">
+      <h2>Товары</h2>
+      <div class="products-grid">
+        <article class="product-card">
+          <div class="product-card__media">
+            <img src="../images/sneaker.svg" alt="Синие кроссовки Urban" width="320" height="220">
+          </div>
+          <h3 class="product-card__title">Кроссовки Urban</h3>
+          <p class="product-card__description">Лёгкая повседневная обувь для прогулок по городу.</p>
+          <p class="product-card__details">Синий цвет · текстиль и резина</p>
+          <p class="product-card__price">4 990 ₽</p>
+          <a class="button product-card__link" href="index.html#popular">Подробнее</a>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__media">
+            <img src="../images/backpack.svg" alt="Жёлтый рюкзак City" width="320" height="220">
+          </div>
+          <h3 class="product-card__title">Рюкзак City</h3>
+          <p class="product-card__description">Компактный рюкзак для повседневных поездок.</p>
+          <p class="product-card__details">Жёлтый цвет · полиэстер</p>
+          <p class="product-card__price">3 490 ₽</p>
+          <a class="button product-card__link" href="index.html#popular">Подробнее</a>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__media">
+            <img src="../images/headphones.svg" alt="Зелёные наушники Wave" width="320" height="220">
+          </div>
+          <h3 class="product-card__title">Наушники Wave</h3>
+          <p class="product-card__description">Накладные наушники для музыки дома и в дороге.</p>
+          <p class="product-card__details">Зелёный цвет · пластик и ткань</p>
+          <p class="product-card__price">5 990 ₽</p>
+          <a class="button product-card__link" href="index.html#popular">Подробнее</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contacts">
+    <p>&copy; 2026 ShopProject</p>
+    <p><a href="index.html#request">Оставить заявку</a></p>
+  </footer>
+</body>
+</html>
